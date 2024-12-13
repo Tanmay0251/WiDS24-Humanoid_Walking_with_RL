@@ -10,7 +10,7 @@
   Covers RL fundamentals, including key concepts like agents, environments, rewards, and policies.
   
 - [**Deep Reinforcement Learning Tutorial for Python in 20 Minutes**](https://www.youtube.com/watch?v=cO5g5qLrLSo)  
-- [**Introduction to Reinforcement Learning - Cartpole DQN**](https://www.youtube.com/watch?v=D795oNqa-Vk&t=1474s)  
+- [**Introduction to Reinforcement Learning - Cartpole DQN**](https://www.youtube.com/watch?v=D795oNqa-Vk&t)  
     A hands-on tutorial on implementing a DQN model for the Cartpole problem.
 
 - [**David Silver’s RL Course**](https://www.youtube.com/playlist?list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ)  
