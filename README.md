@@ -16,6 +16,8 @@
 - [**David Silver’s RL Course**](https://www.youtube.com/playlist?list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ)  
   A comprehensive course on RL by David Silver, covering topics from basic to advanced levels.
 
+## Week 2: Coming Soon...
+
 ### Book for Reference:
 - [**Reinforcement Learning: An Introduction by Sutton & Barto**](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)  
   A foundational paper and reference book in RL, introducing MDPs, Bellman equations, and policy/value functions.
@@ -23,4 +25,3 @@
 ### Interactive RL Tutorial:
 - [**OpenAI’s Spinning Up in Deep RL**](https://spinningup.openai.com/en/latest/)  
 
-## Week 2: Coming Soon...
