@@ -1,6 +1,6 @@
 # Humanoid-Walking-with-Reinforcement-Learning
 
-## Week 1: Introduction to Reinforcement Learning
+## Resources
 
 - [**Deep Reinforcement Learning Tutorial for Python in 20 Minutes**](https://www.youtube.com/watch?v=cO5g5qLrLSo)  
 - [**Reinforcement Learning in 3 Hours**](https://www.youtube.com/watch?v=Mut_u40Sqz4&list=PLgNJO2hghbmjlE6cuKMws2ejC54BTAaWV&index=8)
@@ -9,8 +9,6 @@
   Covers RL fundamentals, including key concepts like agents, environments, rewards, and policies.
 - [**Introduction to Reinforcement Learning - Cartpole DQN**](https://www.youtube.com/watch?v=D795oNqa-Vk&t)  
     A hands-on tutorial on implementing a DQN model for the Cartpole problem.
-
-## Week 2: Coming Soon...
 
 ### Other usefull Resources:
 - [**David Silver’s RL Course**](https://www.youtube.com/playlist?list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ)  
