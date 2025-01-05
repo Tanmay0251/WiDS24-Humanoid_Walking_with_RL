@@ -1,3 +1,12 @@
+# Humanoid Walking Simulation
+We settled for 2D simulation due to the sheer complexity of a 3D simulation, nevertheless the core would be the same.
+
+Decide on a suitable reward function and implement it, you can play around with different versions of the reward function and see how your model plays out so that you may get few ideas.
+
+The metrics of this project would be a screen recorded video of the simulation, a write up on the implemented reward function, and finally the code.
+
+## Instructions
+
 1. **Install Required Modules**:
     ```sh
     pip install -r requirements.txt
