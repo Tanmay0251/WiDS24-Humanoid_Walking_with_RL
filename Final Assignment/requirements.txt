@@ -1,0 +1,5 @@
+gymnasium==0.26.1
+stable-baselines3==2.2.0
+pygame==2.3.0
+numpy==1.24.1
+Box2D==2.3.1
