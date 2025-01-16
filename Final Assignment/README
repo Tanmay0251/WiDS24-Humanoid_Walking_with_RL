@@ -1,0 +1,29 @@
+1. **Install Required Modules**:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+2. **Check Pygame Installation**:
+    ```sh
+    python3 simulation.py
+    ```
+
+3. **Train the Model**:
+    ```sh
+    python3 model.py train
+    ```
+
+4. **Load and Test the Model**:
+    ```sh
+    python3 model.py load
+    ```
+
+5. **Modify the Model**:
+    - Feel free to make changes to `model.py` if you want to use a different model.
+
+6. **Implement Reward Function**:
+    - You need to write the `_compute_reward` function in `humanoid_env_rl.py`.
+    - Train and test the model after implementing the reward function.
+
+7. **Additional Information**:
+    - Go through the code and terminal outputs to understand the dimensions and any other information required to write the reward function.

@@ -18,7 +18,7 @@ class Simulation:
         self.ground_color = (0, 0, 0)
 
         # Load flag image and scale it
-        self.flag_image = pygame.image.load('.assets/flag.png')
+        self.flag_image = pygame.image.load('./assets/flag.png')
         self.flag_image = pygame.transform.scale(self.flag_image, (50, 50))  # Resize to make it small
 
         # Create the Box2D world
@@ -29,6 +29,17 @@ class Simulation:
         self.ground = self.world.CreateStaticBody(
             position=(self.width / (2 * self.ppm), self.ground_height / 2),
             shapes=polygonShape(box=(self.width / (2 * self.ppm), self.ground_height / 2))
+        )
+
+        # Create left and right boundary walls
+        self.left_wall = self.world.CreateStaticBody(
+            position=(0, self.height / (2 * self.ppm)),
+            shapes=polygonShape(box=(self.ground_height / 2, self.height / (2 * self.ppm)))
+        )
+
+        self.right_wall = self.world.CreateStaticBody(
+            position=(self.width / self.ppm, self.height / (2 * self.ppm)),
+            shapes=polygonShape(box=(self.ground_height / 2, self.height / (2 * self.ppm)))
         )
 
         # Create humanoid
@@ -48,6 +59,19 @@ class Simulation:
         flag_y = self.height - int(self.ground_height * self.ppm) - self.flag_image.get_height()
         self.screen.blit(self.flag_image, (flag_x, flag_y))
 
+    def render_walls(self):
+        """Render the boundary walls."""
+        pygame.draw.rect(
+            self.screen,
+            (0, 0, 0),  # Color for the walls (black)
+            pygame.Rect(0, 0, int(self.ground_height * self.ppm), self.height),  # Left wall
+        )
+        pygame.draw.rect(
+            self.screen,
+            (0, 0, 0),  # Color for the walls (black)
+            pygame.Rect(self.width - int(self.ground_height * self.ppm), 0, int(self.ground_height * self.ppm), self.height),  # Right wall
+        )
+
     def run(self):
         clock = pygame.time.Clock()
         running = True
@@ -63,26 +87,26 @@ class Simulation:
             # Render ground
             self.render_ground()
 
+            # Render walls
+            self.render_walls()
+
             # Render flag
             self.render_flag()
 
             # Render humanoid
             self.humanoid.render(self.screen, self.ppm)
 
-            self.humanoid.update_motors(motor_speeds=[0,0,0,0])
+            self.humanoid.update_motors(motor_speeds=[0, 0, 0, 0])
 
-            print(self.humanoid.log_state())
-            if self.humanoid.torso.position.x>16 :
+            if self.humanoid.torso.position.x > 16:
                 print("finish")
                 break
-            
 
             # Update Box2D world
             self.world.Step(1.0 / 60.0, 6, 2)
 
             # Update the display
             pygame.display.flip()
-            clock.tick(12000)
 
         pygame.quit()
 

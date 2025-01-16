@@ -20,7 +20,7 @@ model = PPO(
     env=env,              # Pass the custom environment
     verbose=1,            # Print training information
     tensorboard_log="./humanoid_rl_tensorboard/",  # Log directory for TensorBoard
-    learning_rate=3e-3,   # Learning rate for optimization
+    learning_rate=3e-1,   # Learning rate for optimization
     gamma=0.99,           # Discount factor
     n_steps=2048,         # Number of steps to run per rollout
     batch_size=64,        # Minibatch size for training
@@ -31,7 +31,7 @@ model = PPO(
 if sys.argv[1]=="load":
     model = PPO.load("humanoid_ppo_model", env=env)
 else:
-    TIMESTEPS = 50000  # Set the number of timesteps for training
+    TIMESTEPS = 10000  # Set the number of timesteps for training
     model.learn(total_timesteps=TIMESTEPS)
     model.save("humanoid_ppo_model")
 
@@ -40,7 +40,7 @@ obs = env.reset()[0]
 done = False
 while not done:
     action, _states = model.predict(obs, deterministic=True)  # Get action from the model
-    print(env.step(action) )
+    # print(env.step(action) ) # uncomment to see the output
     obs, reward, done,_, info = env.step(action)  # Perform the action in the environment
     env.render()  # Render the environment (visualization)
 

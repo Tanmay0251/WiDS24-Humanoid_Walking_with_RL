@@ -84,7 +84,7 @@ class HumanoidEnv(gym.Env):
         self.simulation.render_flag()
         self.simulation.humanoid.render(self.simulation.screen, self.simulation.ppm)
         pygame.display.flip()
-        self.simulation_clock.tick(60)
+        self.simulation_clock.tick(600)
 
     def close(self):
         """
@@ -108,12 +108,36 @@ class HumanoidEnv(gym.Env):
 
         Complete this function, more creativity gets more points
 
+        You are also free to change model.py to change training time you will only be judged on the performance of the model when python3 model.py load is run
+
 
         Returns:
             float: The reward value.
         """
-
         ## complete this
+
+        def pos(val):
+            return val if val>0 else -1
+
+
+        state = self.simulation.humanoid.log_state()
+
+        x = state.get('torso_x', 0) # you can access these variable like this
+        y = state.get('torso_y', 0)
+
+        straight = 5000 #train these hyperparmaters depending on how the trained model performs
+        frwd = 10
+        frwd_v = 100
+        done = 10000
+
+
+        reward = (y-1.7)*straight + (x-2)*frwd + (pos(state.get('left_thigh_vx')) + pos(state.get('right_thigh_vx')) + pos(state.get('right_shin_vx')) + pos(state.get('left_shin_vx')) + state.get('torso_vx')) * frwd_v
+
+        if reward>14.5:
+            reward+=done
+
+
+        return reward
 
     def _is_done(self):
         """
@@ -126,7 +150,7 @@ class HumanoidEnv(gym.Env):
         x = state.get('torso_x', 0)
 
         # End the episode if the humanoid falls
-        if x >16:
+        if x >14.5:
             return True
 
         return False
